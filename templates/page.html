@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ base_url }}/assets/twisted_logo_big.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ base_url }}/assets/twisted_logo_big.png">
+    <link rel="stylesheet" href="{{ base_url }}/static/output.css">
+    <link rel="stylesheet" href="{{ base_url }}/static/pygments.css">
+    <link rel="icon" type="image/png" href="{{ base_url }}/assets/favicon.png">
+
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://aoishik.qzz.io/js/pa-MbPBlMr_wUHUOCOW9Me75.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+
+    <style>
+        :root {
+            --absolute-white: #FAFAFA;
+            --fair-gray: #A1A1A1;
+            --dark-black: #050505;
+            --twisted-200: #CAB3E1;
+            --twisted-400: #8364A2;
+            --twisted-600: #5A4471;
+            --twisted-800: #36214B;
+            --twisted-999: #29153D;
+            --surface: #1E072F;
+        }
+        @font-face {
+            font-family: 'Pirkalla';
+            src: url("{{ base_url }}/static/fonts/pirkkala.ttf") format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Oxanium';
+            src: url("{{ base_url }}/static/fonts/Oxanium.ttf") format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        * { border-radius: 0 !important; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--surface);
+            color: var(--absolute-white);
+            font-family: 'Oxanium', 'Courier New', monospace;
+        }
+        .bevel {
+            border: 2px solid;
+            border-color: var(--twisted-200) var(--dark-black) var(--dark-black) var(--twisted-200);
+        }
+        .bevel-in {
+            border: 2px solid;
+            border-color: var(--dark-black) var(--twisted-200) var(--twisted-200) var(--dark-black);
+        }
+        .titlebar {
+            background: var(--twisted-600);
+            color: var(--absolute-white);
+            font-weight: bold;
+            font-size: .875rem;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .titlebar-controls { display: flex; gap: 4px; }
+        .titlebar-controls span {
+            display: inline-block;
+            background: var(--twisted-400);
+            color: var(--dark-black);
+            border: 1px solid;
+            border-color: var(--twisted-200) var(--dark-black) var(--dark-black) var(--twisted-200);
+            padding: 0 8px;
+            line-height: 1;
+        }
+        .toc ul { list-style: none; padding-left: .75rem; }
+        .toc > ul { padding-left: 0; }
+        .toc li { margin: .35rem 0; }
+        .toc a {
+            display: block;
+            color: var(--twisted-200);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            padding-left: .75rem;
+            transition: .15s;
+        }
+        .toc a:hover {
+            color: var(--absolute-white);
+            border-left-color: var(--twisted-400);
+        }
+        .admonition {
+            margin: 1.5rem 0;
+            overflow: hidden;
+            border: 2px solid;
+            border-color: var(--twisted-200) var(--dark-black) var(--dark-black) var(--twisted-200);
+            background: var(--twisted-800);
+        }
+        .admonition-title {
+            padding: .5rem 1rem;
+            font-weight: 700;
+            background: var(--twisted-600);
+            color: var(--absolute-white);
+        }
+        .admonition > *:not(.admonition-title) { padding: 1rem; color: var(--absolute-white); }
+        .admonition.tip .admonition-title { background: #3f6b3f; }
+        .admonition.warning .admonition-title { background: #7a5c1e; }
+        .admonition.danger .admonition-title,
+        .admonition.error .admonition-title { background: #6e1f2e; }
+        ::-webkit-scrollbar { width: 16px; }
+        ::-webkit-scrollbar-track { background: var(--twisted-999); }
+        ::-webkit-scrollbar-thumb {
+            background: var(--twisted-400);
+            border: 2px solid;
+            border-color: var(--twisted-200) var(--dark-black) var(--dark-black) var(--twisted-200);
+        }
+        .prose pre {
+            border: 2px solid !important;
+            border-color: var(--dark-black) var(--twisted-200) var(--twisted-200) var(--dark-black) !important;
+            background: #140420 !important;
+        }
+        .prose code { color: var(--twisted-200); }
+        .prose a { color: var(--twisted-200); text-decoration: underline; }
+        .prose a:hover { color: var(--absolute-white); }
+        .prose h1,
+        .prose h2,
+        .prose h3,
+        .prose h4,
+        .prose h5,
+        .prose h6 {
+            font-family: 'Pirkalla', sans-serif;
+            font-weight: 400;
+        }
+
+        .hero-title {
+            font-family: 'Pirkalla', sans-serif;
+            font-weight: 400;
+        }
+        .prose {
+            font-size: 1.1rem;
+            line-height: 1.75;
+        }
+
+        .prose p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+        }
+        .ui-heading {
+            font-family: 'Pirkalla', sans-serif;
+            font-weight: 400;
+        }
+        
+        .headerlink {
+            margin-left: 1ch;
+            text-decoration: none !important;
+            opacity: 10%;
+        }
+
+        *:has(> .headerlink):hover .headerlink {
+            opacity: 90%;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div class="flex h-screen overflow-hidden">
+        <div id="overlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
+
+        <aside id="sidebar"
+            style="background: var(--twisted-800);"
+            class="bevel fixed lg:static inset-y-0 left-0 z-50 w-80 transform -translate-x-full lg:translate-x-0 transition duration-300 flex flex-col">
+
+            <div class="titlebar ui-heading">
+                <span>twisted_docs.exe</span>
+                <div class="titlebar-controls">
+                    <span>_</span><span>&#9633;</span><span>&#215;</span>
+                </div>
+            </div>
+
+            <div style="background: var(--twisted-999);" class="px-5 py-3">
+                <a href="{{ base_url }}/" style="color: var(--absolute-white);" class="text-xl font-bold ui-heading">twisted docs</a>
+                <p style="color: var(--twisted-200);" class="text-sm mt-1">Documentation</p>
+            </div>
+            
+            <div>
+                <a href="https://twisted.hackclub.com/dashboard/"
+                    class="block px-3 py-2 text-sm transition"
+                        style="background: var(--twisted-400); color: var(--absolute-white);">
+                    Back to dashboard
+                </a>
+            </div>
+
+            <div class="p-5 relative">
+
+                <input id="search-input" type="search"
+                    placeholder="Search Twisted Docs"
+                    style="background: var(--twisted-999); color: var(--absolute-white); font-family: inherit;"
+                    class="bevel-in w-full px-4 py-2.5 text-sm outline-none">
+
+                <div id="search-results" style="background: var(--twisted-800); color: var(--absolute-white);" class="mt-2 hidden rounded-xl shadow-lg max-h-64 overflow-auto border border-slate-700"></div>
+
+            </div>
+
+            <nav class="flex-1 overflow-y-auto px-3 pb-8" style="background: var(--twisted-999);">
+                {% macro render_navigation(nodes) %}
+                    {% for node in nodes %}
+                        {% if node.page %}
+                            <a href="{{ node.page.url }}"
+                                class="block px-3 py-2 text-sm transition"
+                                {% if node.page.slug == current_slug %}
+                                    style="background: var(--twisted-400); color: var(--absolute-white);"
+                                {% else %}
+                                    style="color: var(--twisted-200);"
+                                    onmouseover="this.style.background='var(--twisted-800)';this.style.color='var(--absolute-white)'"
+                                    onmouseout="this.style.background='transparent';this.style.color='var(--twisted-200)'"
+                                {% endif %}>
+                                {% if node.icon %}<span class="mr-2">{{ node.icon }}</span>{% endif %}
+                                {{ node.title }}
+                            </a>
+                        {% else %}
+                            <details open class="mb-4 group">
+                                <summary style="color: var(--fair-gray);"
+                                    class="list-none cursor-pointer flex justify-between items-center py-2 uppercase text-xs tracking-widest font-semibold">
+                                    <span class="flex items-center gap-2">
+                                        {% if node.icon %}<span>{{ node.icon }}</span>{% endif %}
+                                        <span>{{ node.title }}</span>
+                                    </span>
+                                    <svg class="size-4 transition group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </summary>
+                                <div style="border-left: 2px solid var(--twisted-800);" class="mt-2 space-y-1 pl-2">
+                                    {{ render_navigation(node.children) }}
+                                </div>
+                            </details>
+                        {% endif %}
+                    {% endfor %}
+                {% endmacro %}
+                {{ render_navigation(navigation) }}
+            </nav>
+        </aside>
+
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <header style="background: var(--twisted-400); border-bottom: 2px solid var(--twisted-200);" class="sticky top-0 z-30">
+                <div class="h-12 flex items-center justify-between px-4">
+                    <button style="color: var(--absolute-white);" class="lg:hidden bevel px-2 py-1" onclick="openSidebar()">&#9776;</button>
+                    <div style="color: var(--absolute-white);" class="ui-heading text-sm flex flex-wrap items-center gap-0.5">
+                        {% for crumb in breadcrumbs %}
+                            {% if not loop.first %}<span class="mx-2" style="color: var(--twisted-200);">/</span>{% endif %}
+                            {% if crumb.url %}
+                                <a href="{{ crumb.url }}" style="color: var(--twisted-200);"
+                                   onmouseover="this.style.color='var(--absolute-white)'"
+                                   onmouseout="this.style.color='var(--twisted-200)'">{{ crumb.title }}</a>
+                            {% else %}
+                                <span {% if loop.last %}style="color: var(--absolute-white); font-weight: 700;"{% endif %}>{{ crumb.title }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto">
+                <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+                    <div class="flex gap-10">
+                        <div class="flex-1 min-w-0">
+                            <section class="bevel overflow-hidden" style="background: var(--twisted-800);">
+                                <div class="titlebar ui-heading">
+                                    <span>{{ title }}.txt</span>
+                                    <div class="titlebar-controls">
+                                        <span>_</span><span>&#9633;</span><span>&#215;</span>
+                                    </div>
+                                </div>
+                                <div class="p-8 lg:p-12 text-center">
+                                    <h1
+                                        style="color: var(--absolute-white); font-family: 'Pirkalla', sans-serif;"
+                                        class="text-4xl lg:text-5xl font-extrabold tracking-tight">
+                                        {{ title }}
+                                    </h1>
+                                    {% if description %}
+                                    <p style="color: var(--twisted-200);" class="mt-5 text-lg max-w-3xl mx-auto leading-relaxed">{{ description }}</p>
+                                    {% endif %}
+                                </div>
+                            </section>
+
+                            <article
+                                class="prose prose-invert max-w-none mt-10 prose-headings:font-bold prose-headings:scroll-mt-24 prose-table:w-full"
+                                style="--tw-prose-body: var(--absolute-white); --tw-prose-headings: var(--absolute-white); --tw-prose-links: var(--twisted-200); --tw-prose-bold: var(--absolute-white); --tw-prose-code: var(--twisted-200); font-family: 'Oxanium', monospace;">
+                                {{ content|safe }}
+                            </article>
+
+                            {% if previous or next %}
+                            <section class="grid md:grid-cols-2 gap-5 mt-16 pt-10" style="border-top: 2px solid var(--twisted-800);">
+                                {% if previous %}
+                                <a href="{{ previous.url }}" class="bevel p-5 transition" style="background: var(--twisted-800);"
+                                   onmouseover="this.style.background='var(--twisted-600)'" onmouseout="this.style.background='var(--twisted-800)'">
+                                    <div style="color: var(--fair-gray);" class="uppercase text-xs font-semibold">Previous</div>
+                                    <div style="color: var(--absolute-white);" class="mt-2 font-semibold text-lg">&#8592; {{ previous.title }}</div>
+                                </a>
+                                {% endif %}
+                                {% if next %}
+                                <a href="{{ next.url }}" class="bevel p-5 text-right transition" style="background: var(--twisted-800);"
+                                   onmouseover="this.style.background='var(--twisted-600)'" onmouseout="this.style.background='var(--twisted-800)'">
+                                    <div style="color: var(--fair-gray);" class="uppercase text-xs font-semibold">Next</div>
+                                    <div style="color: var(--absolute-white);" class="mt-2 font-semibold text-lg">{{ next.title }} &#8594;</div>
+                                </a>
+                                {% endif %}
+                            </section>
+                            {% endif %}
+                        </div>
+
+                        {% if toc %}
+                        <aside class="hidden xl:block w-72 shrink-0">
+                            <div class="bevel sticky top-24" style="background: var(--twisted-800);">
+                                <div class="titlebar ui-heading">
+                                    <span>On this page.exe</span>
+                                    <div class="titlebar-controls"><span>&#215;</span></div>
+                                </div>
+                                <div class="toc text-sm p-4">{{ toc|safe }}</div>
+                            </div>
+                        </aside>
+                        {% endif %}
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        function openSidebar() { sidebar.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); }
+        function closeSidebar() { sidebar.classList.add("-translate-x-full"); overlay.classList.add("hidden"); }
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSidebar(); });
+
+        function openSidebar() {
+            sidebar.classList.remove("-translate-x-full");
+            overlay.classList.remove("hidden");
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                closeSidebar();
+            }
+        });
+
+        // Client-side search
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        let searchIndex = [];
+
+        function fetchSearchIndex() {
+            const idxUrl = "{{ base_url }}/search_index.json";
+            fetch(idxUrl)
+                .then(r => r.ok ? r.json() : Promise.reject())
+                .then(data => { searchIndex = data; })
+                .catch(() => { searchIndex = []; });
+        }
+
+        fetchSearchIndex();
+
+        let debounceTimer;
+        searchInput?.addEventListener('input', (e) => {
+            const q = e.target.value.trim().toLowerCase();
+            clearTimeout(debounceTimer);
+
+            if (!q) {
+                searchResults.classList.add('hidden');
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            debounceTimer = setTimeout(() => {
+                const results = searchIndex.filter(p => (p.title + ' ' + p.description + ' ' + p.content).toLowerCase().includes(q)).slice(0, 10);
+
+                if (results.length === 0) {
+                    searchResults.innerHTML = '<div class="p-3 text-sm text-slate-500">No results</div>';
+                    searchResults.classList.remove('hidden');
+                    return;
+                }
+
+                searchResults.innerHTML = results.map(r => `
+                    <a href="${r.url}" class="block p-3 hover:bg-slate-100 border-b border-slate-100">
+                        <div class="font-semibold">${r.title}</div>
+                        <div class="text-xs text-slate-500">${r.description || r.url}</div>
+                    </a>
+                `).join('');
+
+                searchResults.classList.remove('hidden');
+            }, 150);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchResults.contains(e.target) && e.target !== searchInput) {
+                searchResults.classList.add('hidden');
+            }
+        });
+
+    </script>
+</body>
+</html>

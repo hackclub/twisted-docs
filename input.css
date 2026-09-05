@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+.prose :where(h1, h2, h3, h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    line-height: 1.2;
+}

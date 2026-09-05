@@ -43,7 +43,7 @@ npm run dev
 ~~~
 Feel free to modify this, or not use this at all (even better!). Make your README as customised as possible with images, links, more about you, etc.
 
-### 3. A live demo
+## 3. A live demo
 The format depends on what you built so you should see [Shipping by project type](#shipping-by-project-type) below.
 
 
@@ -54,7 +54,7 @@ This is the easiest to setup and demo.
 | Host | Good for | Notes |
 | --- | --- | --- |
 | [GitHub Pages](https://pages.github.com/) | Static sites | Free, simple, but no backend |
-| [Hack Club Nest](https://hackclub.app/) | Anything, including backends adn databases | Free for Hack clubbers, real Linux server |
+| [Hack Club Nest](https://hackclub.app/) | Anything, including backends and databases | Free for Hack clubbers, real Linux server |
 | [Vercel](https://vercel.com/) / [Netlify](https://netlify.com/) | Next.js, React, static and serverless | Free tier, deploys when you push to github |
 
 Don't use Render, Railway, Streamlit or anything that is a free trial or has loading time.
@@ -69,8 +69,8 @@ Don't use Render, Railway, Streamlit or anything that is a free trial or has loa
 - Or attach prebuilt executables to a GitHub Release.
 
 ### Mobile apps
-- **Android:** Preferabily on Google Play Store, but an APK on Github Releases also works.
-- **iOS:** This isn't required, as Apple doesnt provide an easy way to sideload iOS apps, but an app on the App Store would be nice
+- **Android:** Preferably on Google Play Store, but an APK on Github Releases also works.
+- **iOS:** This isn't required, as Apple doesn't provide an easy way to sideload iOS apps, but an app on the App Store would be nice
 
 ## Track your time
 

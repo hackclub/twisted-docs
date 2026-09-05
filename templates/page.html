@@ -168,6 +168,13 @@
             margin-left: 1ch;
             text-decoration: none !important;
             opacity: 10%;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .headerlink-icon {
+            width: .8em;
+            height: .8em;
         }
 
         *:has(> .headerlink):hover .headerlink {
@@ -215,13 +222,14 @@
 
             </div>
 
-            <nav class="flex-1 overflow-y-auto px-3 pb-8" style="background: var(--twisted-999);">
-                {% macro render_navigation(nodes) %}
+            <nav class="flex-1 overflow-y-auto px-3 pt-4 pb-8" style="background: var(--twisted-999);">
+                {% macro render_navigation(nodes, top=False) %}
                     {% for node in nodes %}
                         {% if node.page %}
                             <a href="{{ node.page.url }}"
-                                class="block px-3 py-2 text-sm transition"
+                                class="block px-3 py-2 text-sm transition{% if top %} my-2 {% endif %}"
                                 {% if node.page.slug == current_slug %}
+                                    data-current="true"
                                     style="background: var(--twisted-400); color: var(--absolute-white);"
                                 {% else %}
                                     style="color: var(--twisted-200);"
@@ -232,7 +240,7 @@
                                 {{ node.title }}
                             </a>
                         {% else %}
-                            <details open class="mb-4 group">
+                            <details class="mb-4 group">
                                 <summary style="color: var(--fair-gray);"
                                     class="list-none cursor-pointer flex justify-between items-center py-2 uppercase text-xs tracking-widest font-semibold">
                                     <span class="flex items-center gap-2">
@@ -250,7 +258,7 @@
                         {% endif %}
                     {% endfor %}
                 {% endmacro %}
-                {{ render_navigation(navigation) }}
+                {{ render_navigation(navigation, top=True) }}
             </nav>
         </aside>
 
@@ -345,6 +353,17 @@
         function openSidebar() { sidebar.classList.remove("-translate-x-full"); overlay.classList.remove("hidden"); }
         function closeSidebar() { sidebar.classList.add("-translate-x-full"); overlay.classList.add("hidden"); }
         document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSidebar(); });
+
+        // Auto-expand only the sidebar sections that contain the current page
+        (function expandCurrentSection() {
+            const current = document.querySelector('nav [data-current="true"]');
+            if (!current) return;
+            let el = current.parentElement;
+            while (el) {
+                if (el.tagName === "DETAILS") el.open = true;
+                el = el.parentElement;
+            }
+        })();
 
         function openSidebar() {
             sidebar.classList.remove("-translate-x-full");

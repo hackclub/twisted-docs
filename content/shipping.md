@@ -1,7 +1,8 @@
 ---
 title: Shipping Projects
 description: How to ship projects for Twisted
-order: 0
+group: "Getting Started"
+order: 3
 icon: SHIP
 ---
 # What is shipping?

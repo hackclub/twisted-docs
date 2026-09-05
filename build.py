@@ -31,10 +31,15 @@ MARKDOWN_EXTENSIONS = [
     "attr_list",
 ]
 
+PERMALINK_PLACEHOLDER = "%%PERMALINK-ICON%%"
+PERMALINK_ICON_HTML = (
+    '<img src="https://icons.hackclub.com/api/icons/white/link" alt="Permalink" class="headerlink-icon">'
+)
+
 MARKDOWN_EXTENSION_CONFIGS = {
     "toc": {
         "title": "On this page",
-        "permalink": True,
+        "permalink": PERMALINK_PLACEHOLDER,
     }
 }
 
@@ -101,7 +106,8 @@ class Builder:
     def clean_title(text: str) -> str:
         """Convert a slug-like string into a readable title."""
 
-        return text.replace("-", " ").replace("_", " ").strip().title()
+        words = text.replace("-", " ").replace("_", " ").strip().split()
+        return " ".join(word if word.isupper() else word.capitalize() for word in words)
 
     @staticmethod
     def coerce_order(value: object) -> int:
@@ -296,6 +302,7 @@ class Builder:
             self.markdown.reset()
             rendered = self.markdown.convert(page.markdown)
             page.toc = self.markdown.toc
+            rendered = rendered.replace(PERMALINK_PLACEHOLDER, PERMALINK_ICON_HTML)
             page.html = self._rewrite_image_sources(page, rendered)
 
     def _insert_navigation_page(self, nodes: list[NavNode], nav_path: tuple[str, ...], page: Page) -> None:
@@ -331,7 +338,7 @@ class Builder:
                 if node.page is None and node.children:
                     node.order = min(child.order for child in node.children)
 
-        nodes.sort(key=lambda node: (node.order, node.title.casefold()))
+        nodes.sort(key=lambda node: (0 if node.page else 1, node.order, node.title.casefold()))
 
     def build_navigation(self) -> None:
         """Build a tree-based navigation structure from the scanned pages."""

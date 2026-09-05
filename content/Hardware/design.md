@@ -1,20 +1,19 @@
 ---
 title: Submitting your Design
 description: Everything you need to submit your hardware project's design for Twisted
-order: 2
+order: 1002
 ---
 
 # Submitting your Design
 
 Okay, you’ve designed your project digitally\! Congrats\! Before giving you funding, the project needs to meet our ✨ _Submission Requirements_ ✨
 
-Fallout wants you to create [**real, shipped projects**](/docs/requirements/what-is-shipping).
+Twisted wants you to create [**real, shipped projects**](/shipping).
 
-There are three key areas of our Design Submission Requirements:
+There are two key areas of our Design Submission Requirements:
 
 1. A good README
 2. Fully completed design
-3. Fallout Zine page.
 
 **Missing any will get your project returned**. Read through all of them\! It’s easy to miss one.
 
@@ -63,7 +62,7 @@ The design should also reasonably actually work\! Of course, you can’t be sure
 - [x] Has a complete CAD assembly, with all components (including electronics).
 - [x] Have a concrete way to attach components (including electronics). Use screws, clips, etc. This is a product, not a demo, it should feel solid, and not held up by tape, glue, and dreams.
 - [x] Has firmware if applicable, even if it’s untested. If you have a microcontroller, you should probably have firmware.
-- [x] Someone else sanity checked your design\! It’s EASY to miss things. Ask a friend, in [\#fallout](https://hackclub.enterprise.slack.com/archives/C037157AL30), and fix them before submitting\!
+- [x] Someone else sanity checked your design\! It’s EASY to miss things. Ask a friend, in #hardware, and fix them before submitting\!
 
 #### Your GitHub repository needs to contain all your project files
 
@@ -82,7 +81,7 @@ The design should also reasonably actually work\! Of course, you can’t be sure
 
 <aside class="callout callout-alert">
 
-Any project that includes stolen content, fully AI-generated design files, or other fraudulent/dishonest material may be permanently rejected and could result in a ban from Fallout and other Hack Club programs.
+Any project that includes stolen content, fully AI-generated design files, or other fraudulent/dishonest material may be permanently rejected and could result in a ban from Twisted and other Hack Club programs.
 
 </aside>
 
@@ -90,19 +89,6 @@ Any project that includes stolen content, fully AI-generated design files, or ot
 
 Here are some examples of well-shipped projects made by Hack Clubbers\! Notice how their READMEs are clear, organized repositories, and clear journals.
 
-<html>
-  <div class="grid! grid-cols-3 gap-4 text-center">
-    <div>
-      <img src="/docs-assets/requirements/submitting-design/cyberboard.webp" alt="NotARoomba’s Cyberboard" />
-      <a href="https://github.com/notaroomba/cyberboard">NotARoomba’s Cyberboard</a>
-    </div>
-    <div>
-      <img src="/docs-assets/requirements/submitting-design/split-keyboard.webp" alt="KOEGlike’s Split Keyboard" />
-      <a href="https://github.com/KOEGlike/mito">KOEGlike’s Split Keyboard</a>
-    </div>
-    <div>
-      <img src="/docs-assets/requirements/submitting-design/cheetah-mx4.webp" alt="Kai’s Cheetah MX4 Mini" />
-      <a href="https://github.com/KaiPereira/Cheetah-MX4-Mini">Kai’s Cheetah MX4 Mini</a>
-    </div>
-  </div>
-</html>
+- [NotARoomba's Cyberboard](https://github.com/notaroomba/cyberboard)
+- [KOEGlike's Split Keyboard](https://github.com/KOEGlike/mito)
+- [Kai's Cheetah MX4 Mini](https://github.com/KaiPereira/Cheetah-MX4-Mini)

@@ -222,3 +222,5 @@ static/output.css
 
 # Local-only backup of images uploaded to R2 (scripts/upload_images_to_r2.py --backup)
 .imgbackups/
+.vercel
+.env*

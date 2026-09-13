@@ -19,18 +19,18 @@ You're building something new — learning skills, making mistakes, making decis
 
 Without a journal, none of your steps are documented — how you pieced things together, why you chose X over Y. Reviewers use your journals too, checking that your decisions make sense, your work is original, and it meets the submission requirements.
 
-There's a reward angle too: the hours you log count toward your approved hours when you ship, and keep your streak ticking.
+<!-- There's a reward angle too: the hours you log count toward your approved hours when you ship, and keep your streak ticking. -->
 
 ## What goes in an entry
 
 | Field | What it is | The rule |
 | --- | --- | --- |
 | Title | A short line describing the entry | Required, 75 characters or fewer |
-| Content | Your write-up of the work | Required, at least 100 characters of actual writing (images don't count) |
-| Image | A photo or screenshot of the work | Required — hardware needs more images for longer sessions, see below |
-| Hours | How long you worked | Logged in 0.1-hour steps, up to 20 per entry |
+| Content | Your write-up of the work | Required, at least 20 characters of actual writing every hour logged (images don't count) |
+| Image | A photo or screenshot of the work | Required, at least an image every three hours logged |
+| Hours | How long you worked | Automatically fetched from Hackatime |
 
-If a session ran longer than 20 hours, split it into multiple entries — short and frequent beats one giant dump anyway.
+If a session ran longer than 6 hours, split it into multiple entries — short and frequent beats one giant dump anyway.
 
 ## How to write a good entry
 

@@ -4,6 +4,7 @@ description: "How to write journal entries that get your hours approved instead 
 group: "Getting Started"
 order: 2
 ---
+*Note: To add **images** to the journal. **Copy(Ctrl + C)** the image and **Paste(Ctrl + V)** it in the journal box, it will get uploaded.*
 
 # Good Journaling
 

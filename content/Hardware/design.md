@@ -35,16 +35,16 @@ If they have to open even a single file, your README is not doing its job. At mi
 
 1\. Explanation of what your project is
 
-- [x] Short description of what your project is\! Highlight what makes it unique
-- [x] How do you use it? Be detailed\! Others can’t read your mind.
-- [x] Why did you make it? Be personal\! Are you solving a problem? Trying to make something smaller than previously thought possible?
+- ✔ Short description of what your project is\! Highlight what makes it unique
+- ✔ How do you use it? Be detailed\! Others can’t read your mind.
+- ✔ Why did you make it? Be personal\! Are you solving a problem? Trying to make something smaller than previously thought possible?
 
 2\. Add images\! A picture is worth a thousand words. Include:
 
-- [x] Screenshots of a full 3D model of your project fully assembled
-- [x] Screenshots of your PCB with components, if you have one
-- [x] A clear wiring diagram, if you’re not using a PCB
-- [x] Anything else that makes it clear what your project is and what it’s for
+- ✔ Screenshots of a full 3D model of your project fully assembled
+- ✔ Screenshots of your PCB with components, if you have one
+- ✔ A clear wiring diagram, if you’re not using a PCB
+- ✔ Anything else that makes it clear what your project is and what it’s for
 
 ## 2. A fully finished design:
 
@@ -58,26 +58,26 @@ The design should also reasonably actually work\! Of course, you can’t be sure
 
 #### At minimum, your project should be:
 
-- [x] Original, custom design by you. **Not by AI, not a direct copy of a tutorial, or someone else.**
-- [x] Has a complete CAD assembly, with all components (including electronics).
-- [x] Have a concrete way to attach components (including electronics). Use screws, clips, etc. This is a product, not a demo, it should feel solid, and not held up by tape, glue, and dreams.
-- [x] Has firmware if applicable, even if it’s untested. If you have a microcontroller, you should probably have firmware.
-- [x] Someone else sanity checked your design\! It’s EASY to miss things. Ask a friend, in #hardware, and fix them before submitting\!
+- ✔ Original, custom design by you. **Not by AI, not a direct copy of a tutorial, or someone else.**
+- ✔ Has a complete CAD assembly, with all components (including electronics).
+- ✔ Have a concrete way to attach components (including electronics). Use screws, clips, etc. This is a product, not a demo, it should feel solid, and not held up by tape, glue, and dreams.
+- ✔ Has firmware if applicable, even if it’s untested. If you have a microcontroller, you should probably have firmware.
+- ✔ Someone else sanity checked your design\! It’s EASY to miss things. Ask a friend, in #hardware, and fix them before submitting\!
 
 #### Your GitHub repository needs to contain all your project files
 
-- [x] A BOM (Bill of Materials) in CSV format, with links, and a line indicating the total cost\! Even if you own a part, still include it. Someone else needs to be able to build what you’ve designed
-- [x] The source files of your PCB, if you have one (`.kicad_pro`, `.kicad_sch`, `.kicad_pcb`, `.epro`, `gerbers.zip`, etc)
-- [x] If you have 3D models, `.step` files of your project’s 3D CAD and the source design file (`.f3d`, `FCStd`, or a link to onshape)
-- [x] Your firmware files, if applicable. Make sure to include the source code
-- [x] ANY other files that are part of your project (libraries, references, etc.)
-- [x] Make sure your repository is well organized. Use and name folders and files clearly
+- ✔ A BOM (Bill of Materials) in CSV format, with links, and a line indicating the total cost\! Even if you own a part, still include it. Someone else needs to be able to build what you’ve designed
+- ✔ The source files of your PCB, if you have one (`.kicad_pro`, `.kicad_sch`, `.kicad_pcb`, `.epro`, `gerbers.zip`, etc)
+- ✔ If you have 3D models, `.step` files of your project’s 3D CAD and the source design file (`.f3d`, `FCStd`, or a link to onshape)
+- ✔ Your firmware files, if applicable. Make sure to include the source code
+- ✔ ANY other files that are part of your project (libraries, references, etc.)
+- ✔ Make sure your repository is well organized. Use and name folders and files clearly
 
 ## You shouldn’t have
 
-- [ ] ANYTHING AI-GENERATED\! Especially graphics. It should feel high-effort and designed.
-- [ ] Designs copied from other people. It’s okay to reference or use parts of other’s work. Make sure to credit it. Never present others’ work as your own.
-- [ ] Missing files\! Check the above
+- ✘ ANYTHING AI-GENERATED\! Especially graphics. It should feel high-effort and designed.
+- ✘ Designs copied from other people. It’s okay to reference or use parts of other’s work. Make sure to credit it. Never present others’ work as your own.
+- ✘ Missing files\! Check the above
 
 <aside class="callout callout-alert">
 
